@@ -88,3 +88,86 @@ This gives API-related helper features like:
 Without inheriting from `ControllerBase`:
 
 these helper methods become unavailable.
+
+## Now Real API Method
+
+Suppose:
+
+```csharp
+[HttpGet]
+public IActionResult GetUsers()
+{
+    return Ok("Users fetched successfully");
+}
+```
+
+---
+
+## `[HttpGet]`
+
+This means:
+
+> "This method handles GET requests."
+
+---
+
+## `IActionResult`
+
+VERY IMPORTANT.
+
+This means:
+
+> "This method returns HTTP response."
+
+---
+
+## Why Not Return String Directly?
+
+BAD:
+
+```csharp
+return "Hello";
+```
+
+GOOD:
+
+```csharp
+return Ok("Hello");
+```
+
+Because APIs should return:
+
+- proper HTTP responses
+- proper status codes
+
+---
+
+## `return Ok()`
+
+This returns:
+
+```text
+200 OK
+```
+
+Meaning:
+
+```text
+request successful.
+```
+
+---
+
+## API Execution Flow
+
+```text
+Swagger sends GET request
+          ↓
+Controller receives request
+          ↓
+GetUsers() executes
+          ↓
+Ok() response returned
+          ↓
+Swagger shows result
+```
