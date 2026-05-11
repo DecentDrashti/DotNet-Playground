@@ -210,9 +210,6 @@ Meaning:
 > "Fetch all users from Users table."
 
 ---
-
-## VERY IMPORTANT MENTAL MODEL
-
 ### EF Core Translation
 
 You write:
