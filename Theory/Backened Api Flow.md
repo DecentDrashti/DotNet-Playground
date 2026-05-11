@@ -179,7 +179,7 @@ Swagger shows result
 
 ## Typical `DbContext` Injection
 
-You'll soon see:
+You'll see:
 
 ```csharp
 private readonly AppDbContext _context;
