@@ -24,3 +24,13 @@
     Scaffold-DbContext "server=Naimish; database=NRVDemo; 
     trusted_connection=true; TrustServerCertificate=True;" 
     Microsoft.EntityFrameworkCore.SqlServer-OutputDir Models -Force
+ 
+ ## Approach 2: code first approach 
+ ### step1: create models first of a particular table in the model folder 
+ ### step2: register it in your dbcontext folder inside the model below the public partial class
+ ### step3: go to tools>>nuget package manager>>package manager console 
+ ### step4: run the command (migration command for creation)
+     Add-Migration AddTable_nameTable
+“Migration tracks database changes.”
+### step4: run the command (migration command for updation)
+     Update-Database
