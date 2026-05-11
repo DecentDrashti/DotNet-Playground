@@ -7,7 +7,7 @@ Create database first
           ↓
 Tables already exist
           ↓
-Generate models from database
+Generate models from database through scaffold command 
 ```
 
 #### When to Use
@@ -23,7 +23,7 @@ Generate models from database
 ```text
 Create C# models first
           ↓
-EF Core creates database automatically
+EF Core creates database automatically through the add migration command
 ```
 
 #### When to Use
