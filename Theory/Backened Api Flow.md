@@ -171,3 +171,74 @@ Ok() response returned
           ↓
 Swagger shows result
 ```
+## How Controllers Talk to Database
+
+`DbContext` enters.
+
+---
+
+## Typical `DbContext` Injection
+
+You'll soon see:
+
+```csharp
+private readonly AppDbContext _context;
+```
+
+---
+
+## Meaning
+
+```text
+Controller
+    ↓
+uses DbContext
+    ↓
+to communicate with database
+```
+
+---
+
+## Example
+
+```csharp
+_context.Users.ToList()
+```
+
+Meaning:
+
+> "Fetch all users from Users table."
+
+---
+
+## VERY IMPORTANT MENTAL MODEL
+
+### EF Core Translation
+
+You write:
+
+```csharp
+_context.Users.ToList()
+```
+
+EF Core internally converts into:
+
+```sql
+SELECT * FROM Users
+```
+
+---
+
+## Complete Flow
+
+```text
+Controller
+    ↓
+DbContext
+    ↓
+Database
+    ↓
+Response
+```
+
+This is backend foundation.
