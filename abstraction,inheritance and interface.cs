@@ -25,7 +25,7 @@ Doctor d = new Staff();
 
 class Animal
 {
-    public virtual void Sound()
+    public virtual void Sound()//Virtual Means Default implementation exists. Child MAY change it.
     {
         Console.WriteLine("Animal Sound");
     }
@@ -83,7 +83,10 @@ class Dog : Animal
 
 // Because parent did not allow overriding.
 
-interface INotification{
+interface INotification
+{
+    void Send();
+}
   class EmailNotification : INotification
 {
     public void Send()
@@ -93,33 +96,33 @@ interface INotification{
 }
 
 
-"If abstract methods also have no body, then why do we use override there but not in interfaces?"
+// "If abstract methods also have no body, then why do we use override there but not in interfaces?"
 
-The answer lies in who owns the method.
+// The answer lies in who owns the method.
 
-Case 1: Abstract Class
+// Case 1: Abstract Class
 abstract class Animal
 {
     public abstract void Sound();
 }
 
-Look carefully.
+// Look carefully.
 
-Even though:
+// Even though:
 
-Sound()
+// Sound()
 
-has no body,
+// has no body,
 
-it still belongs to the class:
+// it still belongs to the class:
 
-Animal
+// Animal
 
-The parent class is saying:
+// The parent class is saying:
 
-"I already have a method called Sound(). I don't know how it works, but it exists."
+// "I already have a method called Sound(). I don't know how it works, but it exists."
 
-Now child class:
+// Now child class:
 
 class Dog : Animal
 {
@@ -129,42 +132,42 @@ class Dog : Animal
     }
 }
 
-Why override?
+// Why override?
 
-Because Dog is replacing the incomplete version inherited from Animal.
+// Because Dog is replacing the incomplete version inherited from Animal.
 
-Think:
+// Think:
 
-Animal
-└── Sound() ← exists but incomplete
+// Animal
+// └── Sound() ← exists but incomplete
 
-Dog
-└── Sound() ← replaces parent's version
+// Dog
+// └── Sound() ← replaces parent's version
 
-So:
+// So:
 
-override = replace inherited method
-Case 2: Interface
+// override = replace inherited method
+// Case 2: Interface
 interface INotification
 {
     void Send();
 }
 
-Interface is not a class.
+// Interface is not a class.
 
-It doesn't give inheritance of implementation.
+// It doesn't give inheritance of implementation.
 
-It only gives a rule.
+// It only gives a rule.
 
-Think:
+// Think:
 
-INotification says:
+// INotification says:
 
-Every class must have Send()
+// Every class must have Send()
 
-That's all.
+// That's all.
 
-Now:
+// Now:
 
 class EmailNotification : INotification
 {
@@ -174,18 +177,18 @@ class EmailNotification : INotification
     }
 }
 
-Here EmailNotification is not replacing anything.
+// Here EmailNotification is not replacing anything.
 
-It is simply fulfilling a contract.
+// It is simply fulfilling a contract.
 
-Think:
+// Think:
 
-College Rule:
-Every student must submit assignment.
+// College Rule:
+// Every student must submit assignment.
 
-Rahul submits assignment.
+// Rahul submits assignment.
 
-Did Rahul override the rule?
+// Did Rahul override the rule?
 
 No.
 
