@@ -23,10 +23,10 @@ DotNet-Playground/
 │   └── Theory notes and concept explanations
 │
 ├── 📄 Lab Files
-│   └── Practical lab exercises
+│   └── Lab Explaination
 │
 ├── 💻 C# Programs
-│   └── Sample programs for each topic
+│   └── Sample programs for Few topic
 │
 └── 📖 README.md
 ```
