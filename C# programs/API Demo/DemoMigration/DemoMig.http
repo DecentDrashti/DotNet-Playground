@@ -1,0 +1,6 @@
+@DemoMig_HostAddress = http://localhost:5278
+
+GET {{DemoMig_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
